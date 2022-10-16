@@ -67,3 +67,7 @@ class FileStorage:
             new_obj = str(obj.to_dict()["__class__"] + "." + obj.to_dict()["id"])
             if new_obj in FileStorage.__objects:
                 del FileStorage.__objects[new_obj]
+
+    def close(self):
+        """ Method for deserializing the JSON file to objects """
+        self.reload()
